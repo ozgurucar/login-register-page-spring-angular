@@ -1,0 +1,54 @@
+import {Component} from '@angular/core';
+import {AuthenticationRequest} from "../../app/services/models/authentication-request";
+import {FormsModule} from "@angular/forms";
+import {CommonModule} from "@angular/common";
+import {Router} from "@angular/router";
+import {AuthenticationService} from "../../app/services/services/authentication.service";
+
+@Component({
+  imports: [
+    FormsModule,
+    CommonModule,
+
+
+  ],
+  selector: 'app-login',
+  standalone: true,
+  styleUrl: './login.component.css',
+  templateUrl: './login.component.html'
+})
+export class LoginComponent {
+  authRequest: AuthenticationRequest = {email: '', password: ''};
+  errorMsg: Array<String> = [];
+
+constructor(
+private router:Router,
+private authService: AuthenticationService,
+) {
+}
+
+  login() {
+  this.errorMsg= [];
+  this.authService.authenticate({
+    body: this.authRequest
+  }).subscribe({
+    next: (res) => {
+      this.router.navigate(['books'])
+    },
+    error: (err) => {
+      console.log(err);
+      if(err.error.validationErrors) {
+        this.errorMsg = err.error.validationErrors
+      } else {
+        this.errorMsg.push(err.error.error);
+      }
+    }
+  })
+  }
+
+
+
+  registerSite() {
+  this.router.navigate(['api/v1/auth/register'])
+  }
+}
