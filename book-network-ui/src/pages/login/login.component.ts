@@ -4,6 +4,7 @@ import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {Router} from "@angular/router";
 import {AuthenticationService} from "../../app/services/services/authentication.service";
+import {TokenService} from "../../app/services/token/token.service";
 
 @Component({
   imports: [
@@ -24,6 +25,7 @@ export class LoginComponent {
 constructor(
 private router:Router,
 private authService: AuthenticationService,
+private tokenService: TokenService
 ) {
 }
 
@@ -33,6 +35,7 @@ private authService: AuthenticationService,
     body: this.authRequest
   }).subscribe({
     next: (res) => {
+      this.tokenService.token = res.token as string;
       this.router.navigate(['books'])
     },
     error: (err) => {
