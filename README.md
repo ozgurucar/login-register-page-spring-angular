@@ -10,7 +10,7 @@ Welcome to the **Secure Login & Registration System**! This project is a robust 
 - 📊 **UI**: Starter level UI, I mostly focused on functions and backend.
 ## 📸 Screenshots
 
-| Login Page                      | Registration Page               | Dashboard                      |
+| Login Page                      | Registration Page               | Verification                     |
 |---------------------------------|---------------------------------|--------------------------------|
 | ![Login](screenshots/login.png) | ![Register](screenshots/register.png) | ![Verification](screenshots/verification.png) |
 
