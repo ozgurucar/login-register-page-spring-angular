@@ -19,6 +19,6 @@ Welcome to the **Secure Login & Registration System**! This project is a robust 
 
 - **Frontend**: [Angular](https://angular.io/)
 - **Backend**: [Spring Boot](https://spring.io/projects/spring-boot)
-- **Database**: [MySQL](https://www.postgresql.org/)
+- **Database**: [PostgreSQL](https://www.postgresql.org/)
 
 
